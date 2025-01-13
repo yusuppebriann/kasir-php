@@ -14,6 +14,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
         /* Custom CSS untuk menyesuaikan dengan desain */
         /* Sidebar */
         .sidebar {
@@ -106,7 +112,7 @@
             <ul class="sidebar-menu list-unstyled">
                 <li><a href="#" class="d-flex align-items-center active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li> <!-- Active menu item -->
                 <li><a href="../views/barang.php" class="d-flex align-items-center"><i class="fas fa-cogs"></i> Barang</a></li>
-                <li><a href="#" class="d-flex align-items-center"><i class="fas fa-credit-card"></i> Transaksi</a></li>
+                <li><a href="../views/transaksi.php" class="d-flex align-items-center"><i class="fas fa-credit-card"></i> Transaksi</a></li>
                 <li><a href="#" class="d-flex align-items-center"><i class="fas fa-truck"></i> Supplier</a></li>
                 <li><a href="../config/logout.php" class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
@@ -177,38 +183,7 @@
                     </div>
                 </section>
 
-                <!-- Data Barang Table Section -->
-                <section class="mt-5">
-                    <h2 class="mb-4">Data Barang</h2>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>ID</th>
-                                <th>Nama Barang</th>
-                                <th>Kategori</th>
-                                <th>Harga Jual</th>
-                                <th>Harga Beli</th>
-                                <th>Stok</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>101</td>
-                                <td>Laptop ASUS</td>
-                                <td>Elektronik</td>
-                                <td>15,000,000</td>
-                                <td>12,000,000</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
-                                </td>
-                            </tr>
-                            <!-- Repeat for more items -->
-                        </tbody>
+                
                     </table>
                 </section>
             </div>

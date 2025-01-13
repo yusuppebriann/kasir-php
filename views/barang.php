@@ -76,35 +76,31 @@ $result = $conn->query($sql);
             border-left: 3px solid #ecf0f1;
         }
 
-        .sidebar-menu li a.active {
-            background-color: #2980b9;
-            color: white;
-            font-weight: bold;
-            border-left: 3px solid #ecf0f1;
-        }
+
 
         .sidebar-menu li a i {
             margin-right: 10px;
             font-size: 18px;
         }
+        
 
         /* Konten utama */
         .main-content {
-            margin-left: 250px;
-            padding: 40px;
+            margin-left: 250px; /* Memberikan ruang untuk sidebar */
+            padding: 30px;
         }
 
-        h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
+        .card-header {
+            font-size: 22px;
+            font-weight: bold;
         }
 
-        .header-section {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-bottom: 20px;
+        .card-body {
+            font-size: 18px;
+        }
+
+        .card {
+            border-radius: 8px;
         }
 
         /* Styling Tabel */
@@ -260,6 +256,18 @@ $result = $conn->query($sql);
                     echo "<tr><td colspan='8' class='no-data'>Tidak ada data barang ditemukan.</td></tr>";
                 }
                 ?>
+                <?php
+if (isset($_SESSION['success'])) {
+    echo "<div class='alert alert-success'>" . $_SESSION['success'] . "</div>";
+    unset($_SESSION['success']);
+}
+
+if (isset($_SESSION['error'])) {
+    echo "<div class='alert alert-danger'>" . $_SESSION['error'] . "</div>";
+    unset($_SESSION['error']);
+}
+?>
+
             </tbody>
         </table>
     </div>
