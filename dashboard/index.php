@@ -1,5 +1,37 @@
-<?php session_start(); ?>
+<?php
+session_start();
 
+// Koneksi ke database
+$servername = "localhost";
+$username = "root"; 
+$password = ""; 
+$dbname = "app_kasir"; 
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Query untuk menghitung total barang
+$sql = "SELECT COUNT(*) as total_barang FROM barang";  // Menggunakan COUNT untuk menghitung jumlah barang
+$result = $conn->query($sql);
+
+// Ambil hasil query
+$total_barang = 0;
+if ($result && $row = $result->fetch_assoc()) {
+    $total_barang = $row['total_barang'];  // Menyimpan total barang
+}
+
+// Query untuk menghitung total supplier
+$sql = "SELECT COUNT(*) as total_supplier FROM supplier";  // Menggunakan COUNT untuk menghitung jumlah barang
+$result = $conn->query($sql);
+
+// Ambil hasil query
+$total_supplier = 0;
+if ($result && $row = $result->fetch_assoc()) {
+    $total_supplier = $row['total_supplier'];  // Menyimpan total supplier
+}
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +145,7 @@
                 <li><a href="#" class="d-flex align-items-center active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li> <!-- Active menu item -->
                 <li><a href="../views/barang.php" class="d-flex align-items-center"><i class="fas fa-cogs"></i> Barang</a></li>
                 <li><a href="../views/transaksi.php" class="d-flex align-items-center"><i class="fas fa-credit-card"></i> Transaksi</a></li>
-                <li><a href="#" class="d-flex align-items-center"><i class="fas fa-truck"></i> Supplier</a></li>
+                <li><a href="../views/supplier.php" class="d-flex align-items-center"><i class="fas fa-truck"></i> Supplier</a></li>
                 <li><a href="../config/logout.php" class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
@@ -140,7 +172,7 @@
                                     Total Barang
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">0</h5>
+                                <h5 class="card-title"><?php echo $total_barang; ?></h5>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +208,7 @@
                                     Supplier
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">0</h5>
+                                <h5 class="card-title"><?php echo $total_supplier; ?></h5>
                                 </div>
                             </div>
                         </div>

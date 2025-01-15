@@ -196,8 +196,8 @@ $result = $conn->query($sql);
             <ul class="sidebar-menu list-unstyled">
                 <li><a href="../dashboard/index.php" class="d-flex align-items-center active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li> <!-- Active menu item -->
                 <li><a href="../views/barang.php" class="d-flex align-items-center"><i class="fas fa-cogs"></i> Barang</a></li>
-                <li><a href="#" class="d-flex align-items-center"><i class="fas fa-credit-card"></i> Transaksi</a></li>
-                <li><a href="#" class="d-flex align-items-center"><i class="fas fa-truck"></i> Supplier</a></li>
+                <li><a href="../views/transaksi.php" class="d-flex align-items-center"><i class="fas fa-credit-card"></i> Transaksi</a></li>
+                <li><a href="../views/supplier.php" class="d-flex align-items-center"><i class="fas fa-truck"></i> Supplier</a></li>
                 <li><a href="../config/logout.php" class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
