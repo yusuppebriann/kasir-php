@@ -229,33 +229,36 @@ $result = $conn->query($sql);
                     <th>Harga Jual</th>
                     <th>Harga Beli</th>
                     <th>Stok</th>
+                    <th>Satuan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                if ($result->num_rows > 0) {
-                    $no = 1;
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>".$no."</td>";
-                        echo "<td>".$row['id']."</td>";
-                        echo "<td>".$row['nama_barang']."</td>";
-                        echo "<td>".$row['kategori']."</td>";
-                        echo "<td>Rp ".number_format($row['harga_jual'], 0, ',', '.')."</td>";
-                        echo "<td>Rp ".number_format($row['harga_beli'], 0, ',', '.')."</td>";
-                        echo "<td>".$row['stok']."</td>";
-                        echo "<td>
-                                <a href='edit_barang.php?id=".$row['id']."' class='btn btn-edit btn-sm'><i class='fas fa-edit'></i> Edit</a>
-                                <a href='hapus_barang.php?id=".$row['id']."' class='btn btn-delete btn-sm'><i class='fas fa-trash'></i> Hapus</a>
-                              </td>";
-                        echo "</tr>";
-                        $no++;
-                    }
-                } else {
-                    echo "<tr><td colspan='8' class='no-data'>Tidak ada data barang ditemukan.</td></tr>";
-                }
-                ?>
+            <?php
+        if ($result->num_rows > 0) {
+            $no = 1;
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>".$no."</td>";
+                echo "<td>".$row['id']."</td>";
+                echo "<td>".$row['nama_barang']."</td>";
+                echo "<td>".$row['kategori']."</td>";
+                echo "<td>Rp ".number_format($row['harga_jual'], 0, ',', '.')."</td>";
+                echo "<td>Rp ".number_format($row['harga_beli'], 0, ',', '.')."</td>";
+                echo "<td>".$row['stok']."</td>";
+                echo "<td>".$row['satuan']."</td>";
+                echo "<td>
+                        <a href='edit_barang.php?id=".$row['id']."' class='btn btn-edit btn-sm'><i class='fas fa-edit'></i> Edit</a>
+                        <a href='hapus_barang.php?id=".$row['id']."' class='btn btn-delete btn-sm'><i class='fas fa-trash'></i> Hapus</a>
+                      </td>";
+                echo "</tr>";
+                $no++;
+            }
+        } else {
+            echo "<tr><td colspan='9' class='no-data'>Tidak ada data barang ditemukan.</td></tr>";
+        }
+        ?>
+    </tbody>
                 <?php
 if (isset($_SESSION['success'])) {
     echo "<div class='alert alert-success'>" . $_SESSION['success'] . "</div>";

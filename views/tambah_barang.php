@@ -160,39 +160,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php } ?>
 
-        <form action="tambah_barang.php" method="POST">
-            <div class="mb-4">
-                <label for="nama_barang" class="form-label">Nama Barang</label>
-                <input type="text" class="form-control" id="nama_barang" name="nama_barang" required>
-            </div>
+        <form action="../config/proses_tambah_barang.php" method="POST">
+    <div class="form-group">
+        <label for="nama_barang">Nama Barang</label>
+        <input type="text" class="form-control" id="nama_barang" name="nama_barang" required>
+    </div>
+    <div class="form-group">
+        <label for="kategori">Kategori</label>
+        <input type="text" class="form-control" id="kategori" name="kategori" required>
+    </div>
+    <div class="form-group">
+        <label for="harga_jual">Harga Jual</label>
+        <input type="number" class="form-control" id="harga_jual" name="harga_jual" required>
+    </div>
+    <div class="form-group">
+        <label for="harga_beli">Harga Beli</label>
+        <input type="number" class="form-control" id="harga_beli" name="harga_beli" required>
+    </div>
+    <div class="form-group">
+        <label for="stok">Stok</label>
+        <input type="number" class="form-control" id="stok" name="stok" required>
+    </div>
+    <div class="form-group">
+        <label for="satuan">Satuan</label> <!-- Menambahkan input untuk satuan -->
+        <input type="text" class="form-control" id="satuan" name="satuan" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Tambah Barang</button>
+</form>
 
-            <div class="mb-4">
-                <label for="kategori" class="form-label">Kategori</label>
-                <input type="text" class="form-control" id="kategori" name="kategori" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="harga_jual" class="form-label">Harga Jual</label>
-                <input type="number" class="form-control" id="harga_jual" name="harga_jual" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="harga_beli" class="form-label">Harga Beli</label>
-                <input type="number" class="form-control" id="harga_beli" name="harga_beli" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="stok" class="form-label">Stok</label>
-                <input type="number" class="form-control" id="stok" name="stok" required>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn-custom">Simpan Barang</button>
-            </div>
-        </form>
 
         <div class="footer">
-            <a href="barang.php">Kembali ke Daftar Barang</a>
+            <a href="../views/barang.php">Kembali ke Daftar Barang</a>
         </div>
     </div>
 

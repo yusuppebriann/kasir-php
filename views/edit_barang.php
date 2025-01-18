@@ -67,29 +67,35 @@ $conn->close();
 <div class="container mt-5">
     <h2>Edit Barang</h2>
 
-    <form method="POST">
-        <div class="mb-3">
-            <label for="nama_barang" class="form-label">Nama Barang</label>
-            <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?php echo $row['nama_barang']; ?>" required>
-        </div>
-        <div class="mb-3">
-            <label for="kategori" class="form-label">Kategori</label>
-            <input type="text" class="form-control" id="kategori" name="kategori" value="<?php echo $row['kategori']; ?>" required>
-        </div>
-        <div class="mb-3">
-            <label for="harga_jual" class="form-label">Harga Jual</label>
-            <input type="number" class="form-control" id="harga_jual" name="harga_jual" value="<?php echo $row['harga_jual']; ?>" required>
-        </div>
-        <div class="mb-3">
-            <label for="harga_beli" class="form-label">Harga Beli</label>
-            <input type="number" class="form-control" id="harga_beli" name="harga_beli" value="<?php echo $row['harga_beli']; ?>" required>
-        </div>
-        <div class="mb-3">
-            <label for="stok" class="form-label">Stok</label>
-            <input type="number" class="form-control" id="stok" name="stok" value="<?php echo $row['stok']; ?>" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Update Barang</button>
-    </form>
+    <form action="../config/proses_tambah_barang.php" method="POST">
+    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+    <div class="form-group">
+        <label for="nama_barang">Nama Barang</label>
+        <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?php echo $row['nama_barang']; ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="kategori">Kategori</label>
+        <input type="text" class="form-control" id="kategori" name="kategori" value="<?php echo $row['kategori']; ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="harga_jual">Harga Jual</label>
+        <input type="number" class="form-control" id="harga_jual" name="harga_jual" value="<?php echo $row['harga_jual']; ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="harga_beli">Harga Beli</label>
+        <input type="number" class="form-control" id="harga_beli" name="harga_beli" value="<?php echo $row['harga_beli']; ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="stok">Stok</label>
+        <input type="number" class="form-control" id="stok" name="stok" value="<?php echo $row['stok']; ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="satuan">Satuan</label> <!-- Menambahkan input untuk satuan -->
+        <input type="text" class="form-control" id="satuan" name="satuan" value="<?php echo $row['satuan']; ?>" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Barang</button>
+</form>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
